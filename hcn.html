@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="1350" height="600"  id="hcn" style="border:1px solid #D3D3D3;"></canvas>
+    <div id="showdt"></div>
+    <div id="showchuvi"></div>
+    <script>
+        class Rectangle {
+            constructor(dai,rong,toado){
+                this.dai=dai;
+                this.rong=rong;
+                this.toado=toado;
+            }
+            dientich(dai,rong) {
+                this.dientich = this.dai*this.rong;
+                document.getElementById("showdt").innerHTML= "Diện tích hình chữ nhật là " + this.dientich;
+            }
+            chuvi(dai,rong) {
+                this.chuvi = (this.dai+this.rong)*2;
+                document.getElementById("showchuvi").innerHTML= "Chu vi hình chữ nhật là " + this.chuvi;
+            }
+            
+            setDairong(dai,rong){
+                this.dai=dai;
+                this.rong=rong;
+            }
+
+            display() {
+                let c =document.getElementById("hcn");
+                let ctx = c.getContext("2d");
+                ctx.fillStyle="#FF0000";
+                ctx.fillRect(this.toado,100,this.dai,this.rong);
+            }
+        }
+
+
+        let newRec = new Rectangle(500,200,100);
+        newRec.display();
+        
+        let new1 = new Rectangle(300,100,800)
+
+        new1.display();
+
+        new1.dientich();
+        new1.chuvi();
+       
+        </script>
+</body>
+</html>
